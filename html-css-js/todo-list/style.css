@@ -1,0 +1,73 @@
+body {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 50%;
+    background-color: aliceblue;
+    margin-top: 100px;
+}
+.list-container h3 {
+    padding-left: 13px
+}
+.input-header {
+    display: flex;
+    justify-content: space-between;
+}
+.input-header input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    outline: none;
+}
+.input-header input:focus {
+}
+.input-header .add-btn {
+    padding: 15px 35px;
+    background-color: coral;
+    color: white;
+    border: none;
+    border-radius: 50px 0 0 50px;
+}
+.list {
+    padding: 0;
+    margin: 0;
+}
+.list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0px 0px 0px 50px;
+    background: #f7f7f7;
+    margin: 5px 0px;
+    cursor: pointer;
+}
+.list li:nth-child(2n) {
+    background-color: white;
+}
+.list li::before {
+    content: '';
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 12px;
+    background-size: contain;
+    background-image: url(../assets/uncheck.png);
+}
+.list span {
+    font-size: 25px;
+}
+.list li.checked span{
+    text-decoration: line-through;
+}
+.list li button:hover {
+    background-color: #80808082;
+    color: red;
+}
+.list li.checked::before {
+    background-size: contain;
+    background-image: url(../assets/checked.png);
+}
