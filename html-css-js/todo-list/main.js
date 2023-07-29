@@ -41,3 +41,7 @@ container.addEventListener('click', (event) => {
 function persistData() {
     localStorage.setItem('todo', container.innerHTML);
 }
+function initialRender() {
+    container.innerHTML = localStorage.getItem('todo');
+}
+initialRender();
