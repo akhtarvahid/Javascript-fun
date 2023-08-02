@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #1e3544;
+    background-color: #1594dfad;
 }
 .timeline {
     position: relative;
@@ -18,7 +18,7 @@ body {
     height: 100%;
     top: 0;
     left: 50%;
-    background: white;
+    background: #fff;
     z-index: 8;
     margin-left: -3px;
     animation: timeline 6s linear forwards;
@@ -35,7 +35,6 @@ body {
     position: relative;
     padding: 10px 50px;
     width: 50%;
-    background-color: #1594dfad;
     animation: movedown 1s linear forwards;
     opacity: 0;
 
@@ -56,6 +55,11 @@ body {
     border-radius: 50%;
     top: 80px;
     z-index: 1;
+    background-color: #fff;
+    border: 3px solid #fff;
+}
+.timeline .card:last-child img {
+    height: 52px;
 }
 .card-left {
   left: 0;
@@ -75,7 +79,7 @@ body {
     position: relative;
     border-radius: 6px;
     font-size: 15px;
-    color: white;
+    color: #fff;
 }
 .card .left-arrow {
     position: absolute;
