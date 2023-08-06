@@ -18,10 +18,11 @@ body {
     height: 100%;
     top: 0;
     left: 50%;
-    background: #fff;
+    background: #184063;
     z-index: 8;
-    margin-left: -3px;
+    margin-left: 2px;
     animation: timeline 6s linear forwards;
+    z-index: -1;
 }
 @keyframes timeline {
     0%{
@@ -51,51 +52,57 @@ body {
 }
 .card img {
     position: absolute;
+    height: 50px;
     width: 50px;
     border-radius: 50%;
     top: 80px;
     z-index: 1;
     background-color: #fff;
-    border: 3px solid #fff;
+    /* border: 3px solid #fff; */
 }
 .timeline .card:last-child img {
     height: 52px;
 }
 .card-left {
-  left: 0;
+  left: 5px;
 }
 .card-right {
   left: 50%
 }
 .card-left img {
-    right: -14px;
+    right: -24px;
+    top: 104px;
 }
 .card-right img {
-    left: -25px;
+    left: -23px;
+    top: 106px;
 }
 .info-card {
-    padding: 20px 30px;
+    padding: 35px 30px;
     background: #184063;
     position: relative;
     border-radius: 6px;
     font-size: 15px;
     color: #fff;
 }
+.info-card p {
+    margin-top: 15px;
+}
 .card .left-arrow {
     position: absolute;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-left: 20px solid red;
-    right: 28px;
-    top: 50%;
+    border-left: 20px solid #184063ab;
+    right: 30px;
+    top: 111px;
 }
 .card .right-arrow {
     position: absolute;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-right: 20px solid red;
-    left: 28px;
-    top: 50%;
+    border-right: 20px solid #184063ab;
+    left: 30px;
+    top: 111px;
 }
 .card:nth-child(1) {
     animation-delay: 0s;
