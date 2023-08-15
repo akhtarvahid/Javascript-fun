@@ -31,7 +31,6 @@ btnAdd.addEventListener('click', (e)=> {
     address.value = '';
     phone.value = '';
   }
-  e.preventDefault();
 })
 
 function read() {
@@ -72,7 +71,8 @@ function read() {
                 updateBtn.classList.add('update');
                 tdUpdate.append(updateBtn)
                 const deleteBtn = document.createElement('button');
-                deleteBtn.textContent = 'Delete'
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete');
                 tdDelete.append(deleteBtn);
 
                 tr.appendChild(tdUpdate);
@@ -89,14 +89,11 @@ read();
 
 const row = document.querySelector('tbody');
 row.addEventListener('click', (e) => {
-    const [editId, editName, editAddress, editPhone] = e.target.parentElement.parentElement.children;
     if(e.target.className === 'update') {
-          name.value = editName.textContent;
-          address.value = editAddress.textContent;
-          phone.value = editPhone.textContent;
-          updateId = parseInt(editId.textContent);
-          btnAdd.style.display = 'none';
-          btnUpdate.style.display = 'block';
+          updateRow(e);
+    }
+    if(e.target.className === 'delete') {
+       deleteRow(e);
     }
 });
 
@@ -117,3 +114,28 @@ btnUpdate.addEventListener('click', e => {
       location.reload()
   }
 })
+
+function updateRow(e) {
+  const [editId, editName, editAddress, editPhone] = e.target.parentElement.parentElement.children;
+
+  name.value = editName.textContent;
+  address.value = editAddress.textContent;
+  phone.value = editPhone.textContent;
+  updateId = parseInt(editId.textContent);
+  btnAdd.style.display = 'none';
+  btnUpdate.style.display = 'block';
+
+}
+function deleteRow(e){
+  const [editId] = e.target.parentElement.parentElement.children;
+  let request = indexedDB.open(db, 1)
+  request.onsuccess = () => {
+      let res = request.result;
+      let tx = res.transaction('employee', 'readwrite')
+      let store = tx.objectStore('employee')
+      store.delete(parseInt(editId.textContent))
+      alert("Data has been deleted")
+      location.reload()
+  }
+  console.log(e, editId);
+}
