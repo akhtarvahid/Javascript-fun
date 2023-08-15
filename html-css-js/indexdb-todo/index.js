@@ -3,11 +3,12 @@ let db = 'employees';
 let name = document.querySelector("#name");
 let address = document.querySelector("#add");
 let phone = document.querySelector("#ph");
-let btn = document.querySelector("button");
+let btnAdd = document.querySelector(".add");
 let tbody = document.querySelector('tbody');
+let btnUpdate = document.querySelector('.updateBtn');
+let updateId;
 
-
-btn.addEventListener('click', (e)=> {
+btnAdd.addEventListener('click', (e)=> {
   let request = indexedDB.open(db, 1);
   
   request.onupgradeneeded = () => {
@@ -44,15 +45,16 @@ function read() {
             let curRes = cursor.result;
             if (curRes) {
                 const tr = document.createElement('tr');
+                const tdId = document.createElement('td');
                 const tdName = document.createElement('td');
                 const tdAddress = document.createElement('td');
                 const tdPhone = document.createElement('td');
                 
-                //tr.setAttribute('onclick', 'update()')
-                // tr.onclick="update()"
+                tdId.innerHTML = `${curRes.key}`
                 tdName.innerHTML = `${curRes.value.name}`
                 tdAddress.innerHTML = `${curRes.value.address}`
                 tdPhone.innerHTML = `${curRes.value.phone}`
+                tr.appendChild(tdId)
                 tr.appendChild(tdName)
                 tr.appendChild(tdAddress)
                 tr.appendChild(tdPhone)
@@ -63,7 +65,8 @@ function read() {
                 //   ${curRes.value.phone}
                 // `;
                 const updateBtn = document.createElement('button');
-                updateBtn.textContent = 'Update'
+                updateBtn.textContent = 'Update';
+                updateBtn.classList.add('update');
                 const deleteBtn = document.createElement('button');
                 deleteBtn.textContent = 'Delete'
 
@@ -81,8 +84,31 @@ read();
 
 const row = document.querySelector('tbody');
 row.addEventListener('click', (e) => {
-    const [editName, editAddress, editPhone] = e.target.parentElement.children;
-    name.value = editName.textContent;
-    address.value = editAddress.textContent;
-    phone.value = editPhone.textContent;
+    const [editId, editName, editAddress, editPhone] = e.target.parentElement.children;
+    if(e.target.className === 'update') {
+          name.value = editName.textContent;
+          address.value = editAddress.textContent;
+          phone.value = editPhone.textContent;
+          updateId = parseInt(editId.textContent);
+          btnAdd.style.display = 'none';
+          btnUpdate.style.display = 'block';
+    }
+});
+
+btnUpdate.addEventListener('click', e => {
+  e.preventDefault();
+  let request = indexedDB.open(db, 1)
+  request.onsuccess = () => {
+      let res = request.result;
+      let tx = res.transaction('employee', 'readwrite')
+      let store = tx.objectStore('employee');
+      store.put({
+        eId: Date.now(),
+        name: name.value,
+        address: address.value,
+        phone: phone.value
+      }, updateId);
+      alert("employee has been updated")
+      location.reload()
+  }
 })
