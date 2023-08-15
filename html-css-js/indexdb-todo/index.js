@@ -6,6 +6,7 @@ let phone = document.querySelector("#ph");
 let btnAdd = document.querySelector(".add");
 let tbody = document.querySelector('tbody');
 let btnUpdate = document.querySelector('.updateBtn');
+let listContainer = document.querySelector('.lists');
 let updateId;
 
 btnAdd.addEventListener('click', (e)=> {
@@ -40,11 +41,16 @@ function read() {
         let res = request.result;
         let tx = res.transaction('employee', 'readonly')
         let store = tx.objectStore('employee')
-        let cursor = store.openCursor()
+        let cursor = store.openCursor();
+        let heading = document.createElement('h2');
+        heading.textContent = 'List';
+        listContainer.append(heading);
+        
         cursor.onsuccess = () => {
             let curRes = cursor.result;
             if (curRes) {
                 const tr = document.createElement('tr');
+                tr.classList.add('row');
                 const tdId = document.createElement('td');
                 const tdName = document.createElement('td');
                 const tdAddress = document.createElement('td');
@@ -59,21 +65,20 @@ function read() {
                 tr.appendChild(tdAddress)
                 tr.appendChild(tdPhone)
 
-                // tr.innerHTML += `
-                //   ${curRes.value.name}
-                //   ${curRes.value.address}
-                //   ${curRes.value.phone}
-                // `;
+                let tdUpdate = document.createElement('td');
+                let tdDelete = document.createElement('td');
                 const updateBtn = document.createElement('button');
-                updateBtn.textContent = 'Update';
+                updateBtn.textContent = 'Edit';
                 updateBtn.classList.add('update');
+                tdUpdate.append(updateBtn)
                 const deleteBtn = document.createElement('button');
                 deleteBtn.textContent = 'Delete'
+                tdDelete.append(deleteBtn);
 
-                tr.appendChild(updateBtn);
-                tr.appendChild(deleteBtn);
+                tr.appendChild(tdUpdate);
+                tr.appendChild(tdDelete);
                 tbody.appendChild(tr);
-                curRes.continue()
+                curRes.continue();
             }
 
         }
@@ -84,7 +89,7 @@ read();
 
 const row = document.querySelector('tbody');
 row.addEventListener('click', (e) => {
-    const [editId, editName, editAddress, editPhone] = e.target.parentElement.children;
+    const [editId, editName, editAddress, editPhone] = e.target.parentElement.parentElement.children;
     if(e.target.className === 'update') {
           name.value = editName.textContent;
           address.value = editAddress.textContent;

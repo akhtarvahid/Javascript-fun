@@ -9,20 +9,31 @@
 <body>
     <h1>Employees</h1>
     <form>
-        <h3>Name</h3>
-        <input type="text" id="name" />
-        <h3>Address</h3>
-        <input type="text" id="add" />
-        <h3>Phone</h3>
-        <input type="text" id="ph" />
-        <button class="add">Add to database</button>
-        <button class="updateBtn">Update</button>
+        <div>
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Enter name"/>
+        </div>
+        <div>
+          <label>Address</label>
+          <input type="text" id="add" placeholder="Enter address"/>
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type="text" id="ph" placeholder="Enter phone number"/>  
+        </div>
+        <div>
+          <button class="add">Submit</button>
+          <button class="updateBtn">Update</button>  
+        </div>
     </form>
+    <div class="lists"></div>
     <table>
         <thead>
+            <th>Key</th>
             <th>Name</th>
             <th>Address</th>
             <th>Phone</th>
+            <th>Action</th>
         </thead>
         <tbody>
         </tbody>
