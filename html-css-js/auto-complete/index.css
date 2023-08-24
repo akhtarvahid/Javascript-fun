@@ -1,0 +1,63 @@
+body {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #d0e7fc;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+li {
+    list-style: none;
+}
+.container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+.container h2 {
+    margin-top: 5rem;
+}
+
+.search-box {
+    background-color: gainsboro;
+}
+
+.input {
+    width:100%;
+    height:3rem;
+    border-radius: 0.25rem;
+    border: 2px solid #0c84e3;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.suggestions {
+    margin: 2rem auto;
+    max-height: 25rem;
+    overflow-y: scroll;
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.suggestions li {
+    list-style: none;
+    background: #0c84e3;
+    color: #fff;
+    margin: 5px 0;
+    padding: 12px;
+    text-align: initial;
+}
+.suggestions li:first-child {
+    margin: 0;
+}
+
+/* i want to show suggestion when there is some text  */
+.visible{
+    display: block;
+}
