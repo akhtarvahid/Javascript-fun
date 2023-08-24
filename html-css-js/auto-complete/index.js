@@ -1,4 +1,5 @@
 import getCountries from "./fetchData.js";
+import debounce from "./util.js";
 
 const inputBox = document.getElementById("input");
 const suggestionBox = document.getElementById("suggestions");
@@ -32,4 +33,4 @@ const suggestionHandler = async (e) => {
     const countryNames = await searchHandler(keyword);
     populateSuggestionBox(countryNames);
 }
-inputBox.addEventListener("input", suggestionHandler);
+inputBox.addEventListener("input", debounce(suggestionHandler));
