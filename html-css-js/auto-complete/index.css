@@ -56,8 +56,6 @@ li {
 .suggestions li:first-child {
     margin: 0;
 }
-
-/* i want to show suggestion when there is some text  */
-.visible{
+.visible {
     display: block;
 }
