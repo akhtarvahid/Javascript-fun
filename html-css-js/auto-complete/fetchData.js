@@ -1,6 +1,7 @@
+const BASE_URL = 'https://restcountries.com/v3.1/name';
 async function getCountries(keyword) {
     try {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${keyword}`);
+        const response = await fetch(`${BASE_URL}/${keyword}`);
         const result = await response.json();
         if (response.status == 404) {
             return [];
