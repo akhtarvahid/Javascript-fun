@@ -6,11 +6,10 @@ const suggestionBox = document.getElementById("suggestions");
 
 const searchHandler = async (keyword) => {
     const countries = await getCountries(keyword);
-    const countryNames = countries.map((country) => country.name.common);
-    return countryNames;
+    return countries.map(({ name }) => name.common);;
 }
 
-const populateSuggestionBox = (countryNames) => {
+const renderSuggestion = (countryNames) => {
     if (countryNames.length) {
         suggestionBox.classList.add("visible");
     } else {
@@ -19,7 +18,6 @@ const populateSuggestionBox = (countryNames) => {
     suggestionBox.innerHTML = "";
 
     const fragment = document.createDocumentFragment();
-    console.log('countryNames array', countryNames)
     countryNames.forEach((countryName) => {
         const li = document.createElement("li");
         li.innerText = countryName;
@@ -28,9 +26,9 @@ const populateSuggestionBox = (countryNames) => {
     suggestionBox.appendChild(fragment);
 }
 
-const suggestionHandler = async (e) => {
-    const keyword = e.target.value;
+const suggestionHandler = async (event) => {
+    const { value: keyword } = event.target;
     const countryNames = await searchHandler(keyword);
-    populateSuggestionBox(countryNames);
+    renderSuggestion(countryNames);
 }
 inputBox.addEventListener("input", debounce(suggestionHandler));
