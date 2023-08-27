@@ -1,5 +1,4 @@
 let db = 'employees';
-
 let name = document.querySelector("#name");
 let address = document.querySelector("#add");
 let phone = document.querySelector("#ph");
