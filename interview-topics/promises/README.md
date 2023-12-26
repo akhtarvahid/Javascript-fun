@@ -1,7 +1,7 @@
 # JavaScript Tricky Questions — Promises
 
 
-### Q1 What would be the answer ?
+### Q1. What would be the answer?
 
 Try yourself first.
 
@@ -35,7 +35,7 @@ Output:
 -----
 
 
-### Q2 What would be the answer ?
+### Q2. What would be the answer ?
 
 ```Js
 function myFn(){ 
@@ -64,7 +64,7 @@ Options
 
 -----
 
-### Q3 What would be the answer ?
+### Q3. What would be the answer ?
 
 ```Js
 new Promise((resolve, reject)=> {
@@ -93,7 +93,7 @@ Output?
 
 -----
 
-### Q4 What would be the answer?
+### Q4. What would be the answer?
 
 ```Js
 console.log('start')
@@ -124,7 +124,7 @@ Options
 
 -----
 
-### Q5 What would be the answer?
+### Q5. What would be the answer?
 
 ```Js
 const fn = () => new Promise((resolve, reject)=> {
@@ -161,7 +161,7 @@ Options
 
 -----
 
-### Q6 What would be the answer?
+### Q6. What would be the answer?
 
 ```Js
 console.log('start')
@@ -191,7 +191,7 @@ start middle 1 2 end pre 3 success
 
 -----
 
-### Q7 What will be the answer ?
+### Q7. What will be the answer ?
 ```Js
 function game() {
     return new Promise((resolve, reject) => {
@@ -238,7 +238,7 @@ Options
 
 -----
 
-### Q8 Pick the correct option
+### Q8. Pick the correct option
 
 ```Js
 function performer(state) {
@@ -285,7 +285,7 @@ Output?
 
 -----
 
-### Q9 What would be answer?
+### Q9. What would be answer?
 ```Js
 function performer(state) {
     return new Promise((resolve, reject) => {
@@ -349,7 +349,7 @@ Options
 
 -----
 
-### Q10 What would be the answer?
+### Q10. What would be the answer?
 
 ```Js
 const promise1 = new Promise((reject) => {
@@ -382,7 +382,7 @@ Options
 
 -----
 
-### Q11 Convert below code in async-await format
+### Q11. Convert below code in async-await format
 
 `let API_URL = 'https://jsonmock.hackerrank.com/api/movies?year=2023';`
 
@@ -426,7 +426,7 @@ getMovieData(API_URL)
 
 -----
 
-### Q12 Complete `executeRecursively` function to solve promises recursively
+### Q12. Complete `executeRecursively` function to solve promises recursively
 Given promises
 ```Js
 function likeVideoPromise(param) {
@@ -490,7 +490,7 @@ function executeRecursively(promises) {
 
 -----
 
-### Q13 What will be the output of 
+### Q13. What will be the output of 
 
 ```Js
 const firstPromise = new Promise((resolve, reject) => {
@@ -521,7 +521,7 @@ Options
 
 -----
 
-### Q14 What will be the answer
+### Q14. What will be the answer
 
 ```Js
 async function loadData() {
@@ -548,7 +548,7 @@ Output?
 
 -----
 
-### Q15 What will be the output?
+### Q15. What will be the output?
 
 ```Js
 const fakePromise = () => Promise.resolve('RESOLVED!');
@@ -581,7 +581,7 @@ Options
 </details>
 
 -----
-### Q16 What will be the answer?
+### Q16. What will be the answer?
 
 ```Js
 new Promise((resolve)=> resolve(5))
@@ -604,7 +604,7 @@ Output?
 
 -----
 
-### Q17 What will be the answer ?
+### Q17. What will be the answer ?
 ```Js
 function promiseFn() { 
   return Promise.resolve('done!')
@@ -641,7 +641,7 @@ Options
 
 -----
 
-### Q18 What would be the answer?
+### Q18. What would be the answer?
 
 ```Js
 function fnPromiseFn1() { 
@@ -676,7 +676,7 @@ Output?
 
 -----
 
-### Q19 What will be the answer?
+### Q19. What will be the answer?
 
 ```Js
 new Promise((resolve)=> resolve(5))
@@ -700,7 +700,7 @@ Options
 
 -----
 
-### Q20 What's output ?
+### Q20. What's output ?
 
 ```Js
 let promise1 = new Promise((resolve, reject) => {
@@ -750,7 +750,7 @@ Options
 
 -----
 
-### Q21
+### Q21.What would be the answer?
 ```Js
 console.log('hey')
 const promise = new Promise((resolve, reject) => {
@@ -763,7 +763,7 @@ Options
 - hey &nbsp; yo! &nbsp; bye
 - hey &nbsp; yo!
 <details>
-  <summary></summary>
+  <summary>Answer</summary>
 
 ```in js
 ✅ hey yo! bye
@@ -773,7 +773,7 @@ Options
 
 -----
 
-### Q22 What would be the answer?
+### Q22. What would be the answer?
 ```Js
 const promFn1 = () => new Promise((reject) => reject(101));
 const promFn2 = () => new Promise((resolve) => resolve(102));
@@ -809,7 +809,7 @@ Options
 
 -----
 
-### Q23 What would be the answer?
+### Q23. What would be the answer?
 
 ```Js
 const proms1 = () => new Promise((resolve) => resolve(2));
@@ -838,7 +838,7 @@ Tip: If you don't define both resolve and reject, reject will be treated as firs
 
 -----
 
-### Q24 What would be the answer?
+### Q24. What would be the answer?
 
 ```Js
 const pro1 = new Promise((res, rej) => {
@@ -873,7 +873,7 @@ Options
 
 -----
 
-### Q25 What would be the answer ?
+### Q25. What would be the answer ?
 
 ```Js
 function task1(){
@@ -909,7 +909,7 @@ Options
 
 -----
 
-### Q26 What would be the answer?
+### Q26. What would be the answer?
 
 ```Js
 function p1() {
@@ -941,7 +941,7 @@ Options
 
 -----
 
-### Q27 What would be the answer
+### Q27. What would be the answer
 
 ```Js
 let myPromise1 = new Promise((resolve) => resolve('🏃'));
@@ -990,7 +990,7 @@ Options
 
 -----
 
-### Q28 What would be the answer
+### Q28. What would be the answer
 
 ```Js
 function executer(time, arg) {
